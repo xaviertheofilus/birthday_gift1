@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Ulang Tahun! 🎉</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); }
+      50% { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 50%, #fbc2eb 100%); }
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      gap: 20px;
+      max-width: 500px;
+      margin: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .gif-container {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .gif-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 1.8rem;
+      margin: 10px 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    p {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn {
+      display: flex;
+      gap: 25px;
+      margin-top: 10px;
+    }
+    
+    .btn a {
+      text-decoration: none;
+      color: #333;
+      background: linear-gradient(135deg, #fff, #f8f9fa);
+      padding: 15px 30px;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    }
+
+    .btn a:first-child {
+      background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+      color: white;
+    }
+
+    .btn a:first-child:hover {
+      background: linear-gradient(135deg, #ff5252, #ff7979);
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    #move-random {
+      transition: all 0.3s ease;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(255, 182, 193, 0.7);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hearts" id="hearts"></div>
+
+  <!-- Halaman 1 -->
+  <div class="container page active" id="page1">
+    <div class="gif-container">
+      <div class="gif-placeholder">🎂</div>
+    </div>
+    <h1>Eh, hari ini ulang tahunmu kan? 🎂</h1>
+    <p>Mau aku kasih kejutan lucu nggak? 🎁✨</p>
+
+    <div class="btn">
+      <a href="#" onclick="showPage(2)">Boleh dong! 🥳</a>
+      <a href="#" onclick="showPage(3)">Ah masa... 🙄</a>
+    </div>
+  </div>
+
+  <!-- Halaman 2 - YES -->
+  <div class="container page" id="page2">
+    <div class="gif-container">
+      <div class="gif-placeholder">🥳</div>
+    </div>
+    <h1>SELAMAT ULANG TAHUN SAYANGKUUU! 🎉🎂</h1>
+    <p>Semoga panjang umur, sehat selalu, dan makin cantik aja! 
+    <br>Eh tapi jangan lupa traktir ya! 😜🍰</p>
+    <div class="btn">
+      <a href="#" onclick="showPage(1)">Kejutan lagi!</a>
+    </div>
+  </div>
+
+  <!-- Halaman 3 - First NO -->
+  <div class="container page" id="page3">
+    <div class="gif-container">
+      <div class="gif-placeholder">🥺</div>
+    </div>
+    <h1>Loh kok belum happy? Ayolah! 🤪</h1>
+    <p>Hari ini kan spesial, masa muka masam terus sih? 😂</p>
+
+    <div class="btn">
+      <a href="#" onclick="showPage(2)">Oke deh happy! 🥳</a>
+      <a href="#" onclick="showPage(4)">Masih ngantuk... 😴</a>
+    </div>
+  </div>
+
+  <!-- Halaman 4 - Second NO -->
+  <div class="container page" id="page4">
+    <div class="gif-container">
+      <div class="gif-placeholder">😢</div>
+    </div>
+    <h1>Waduh, kok masih belum seneng? 🤨</h1>
+    <p>Udah ku bikinin kejutan, kok malah cuek gitu sih! 😤</p>
+
+    <div class="btn">
+      <a href="#" onclick="showPage(2)">Makasih ya! 🤗</a>
+      <a href="#" onclick="showPage(5)">Biasa aja tuh 😏</a>
+    </div>
+  </div>
+
+  <!-- Halaman 5 - Moving NO button -->
+  <div class="container page" id="page5">
+    <div class="gif-container">
+      <div class="gif-placeholder">😭</div>
+    </div>
+    <h1>Hadehhh, kamu tuh susah banget diminta happy! 🫠</h1>
+    <p>Padahal udah ulang tahun, kok masih aja jutek! 
+    <br>Yaudah deh, tombol "Biasa aja" nya mau ku sembunyiin! 🏃‍♂️</p>
+
+    <div class="btn">
+      <a href="#" onclick="showPage(2)">Haha oke happy! 😂</a>
+      <a href="#" id="move-random" onmouseover="moveButton(this)">Tetep biasa aja! 😝</a>
+    </div>
+  </div>
+
+  <script>
+    function showPage(pageNum) {
+      // Sembunyikan semua halaman
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      
+      // Tampilkan halaman yang dipilih
+      document.getElementById('page' + pageNum).classList.add('active');
+      
+      if (pageNum === 2) {
+        createHearts();
+      }
+    }
+
+    function moveButton(button) {
+      const container = button.closest('.container');
+      const containerRect = container.getBoundingClientRect();
+      
+      // Posisi random dalam container
+      const maxX = containerRect.width - button.offsetWidth - 20;
+      const maxY = containerRect.height - button.offsetHeight - 20;
+      
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+      
+      button.style.position = 'absolute';
+      button.style.left = randomX + 'px';
+      button.style.top = randomY + 'px';
+    }
+
+    function createHearts() {
+      const heartsContainer = document.getElementById('hearts');
+      heartsContainer.innerHTML = '';
+      
+      for (let i = 0; i < 30; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement('div');
+          confetti.className = 'heart';
+          confetti.innerHTML = ['🎉', '🎂', '🎁', '🎈', '🥳', '✨', '🎊'][Math.floor(Math.random() * 7)];
+          confetti.style.left = Math.random() * 100 + '%';
+          confetti.style.animationDelay = Math.random() * 2 + 's';
+          confetti.style.animationDuration = (4 + Math.random() * 4) + 's';
+          heartsContainer.appendChild(confetti);
+          
+          setTimeout(() => {
+            confetti.remove();
+          }, 8000);
+        }, i * 200);
+      }
+    }
+  </script>
+</body>
+
+</html>
